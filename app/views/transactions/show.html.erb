@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+<p>id: <%=@transaction.id%></p>
+<p>amount: <%=@transaction.amount%></p>
+<p>transaction_type: <%=@transaction.transaction_type%></p>
+<p>Date created: <%=@transaction.created_at%></p>
+<p>last updated: <%=@transaction.updated_at%></p>
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>

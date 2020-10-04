@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Management screens</h1>
+<%= link_to 'Logout', destroy_user_session_path, method: :delete%>
+<br>
+<%= link_to 'API show transaction for user', api_user_transactions_path(current_user.id, acount_id: current_user.id), method: :get%>
+<table>
+  <thead>
+    <tr>
+      <th >amount</th>
+      <th>transaction_type</th>
+      <th>Manipulation</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%=transaction.amount%></td>
+        <td ><%=transaction.transaction_type%></td>
+        <td><%= link_to 'Show', transaction %> 
+        | <%= link_to 'Edit', edit_transaction_path(transaction) %> 
+        | <%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transaction', new_transaction_path %>
